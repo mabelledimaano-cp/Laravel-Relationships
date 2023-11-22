@@ -19,8 +19,8 @@ class Drug extends Model
         return $this->belongsToMany(Pharmacy::class);
     }
 
-    public function prescription()
+    public function prescriptions()
     {
-        return $this->hasOne(Prescription::class);
+        return $this->hasMany(Prescription::class);
     }
 }

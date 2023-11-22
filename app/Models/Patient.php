@@ -14,8 +14,8 @@ class Patient extends Model
         return $this->belongsTo(Doctor::class);
     }
 
-    public function prescription()
+    public function prescriptions()
     {
-        return $this->hasOne(Prescription::class);
+        return $this->hasMany(Prescription::class);
     }
 }

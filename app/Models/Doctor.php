@@ -16,6 +16,6 @@ class Doctor extends Model
 
     public function prescriptions()
     {
-        return $this->hasOne(Prescription::class);
+        return $this->hasMany(Prescription::class);
     }
 }
