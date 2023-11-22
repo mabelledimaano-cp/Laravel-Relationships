@@ -18,4 +18,9 @@ class Pharmacy extends Model
     {
         return $this->hasMany(Contract::class);
     }
+
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
 }

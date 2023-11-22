@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('works', function (Blueprint $table) {
+            $table->id();
             $table->foreignIdFor(\App\Models\Employee::class, 'employee_id');
             $table->foreignIdFor(\App\Models\Pharmacy::class, 'pharmacy_id');
             $table->date('shift_start');
