@@ -57,7 +57,8 @@ class Patient extends Resource
 
             Text::make('Contact No'),
 
-            BelongsTo::make('Doctor'),
+            BelongsTo::make('Doctor')
+                ->showCreateRelationButton(),
 
             HasMany::make('Prescriptions')
         ];

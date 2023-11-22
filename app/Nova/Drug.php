@@ -2,12 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -49,11 +48,13 @@ class Drug extends Resource
 
             Text::make('Trade Name'),
 
-            BelongsTo::make('Drug Manufacturer'),
+            BelongsTo::make('Drug Manufacturer')
+                ->showCreateRelationButton(),
 
-            BelongsToMany::make('Pharmacies'),
+            BelongsToMany::make('Pharmacies')
+                ->showCreateRelationButton(),
 
-            Currency::make('Price'),
+            Number::make('Price'),
 
             HasMany::make('Prescriptions')
         ];
