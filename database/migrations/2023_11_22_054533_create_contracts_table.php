@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\DrugManufacturer;
+use App\Models\Pharmacy;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +14,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\DrugManufacturer::class, 'manufacturer_id');
-            $table->foreignIdFor(\App\Models\Pharmacy::class, 'pharmacy_id');
+            $table->foreignIdFor(DrugManufacturer::class, 'manufacturer_id')->constrained()->cascadeOnDelete();;
+            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();;
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
