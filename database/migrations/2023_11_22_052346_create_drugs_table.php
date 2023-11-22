@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(DrugManufacturer::class)->constrained()->cascadeOnDelete();
             $table->string('trade_name');
-            $table->float('price')->default(0);
             $table->timestamps();
         });
     }

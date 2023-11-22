@@ -11,7 +11,9 @@ class Pharmacy extends Model
 
     public function drugs()
     {
-        return $this->belongsToMany(Drug::class);
+        return $this->belongsToMany(Drug::class, 'drug_pharmacy')
+            ->withPivot('price')
+            ->withTimestamps();
     }
 
     public function contracts()
@@ -19,8 +21,9 @@ class Pharmacy extends Model
         return $this->hasMany(Contract::class);
     }
 
-    public function works()
+
+    public function employees()
     {
-        return $this->hasMany(Work::class);
+        return $this->hasMany(Employee::class);
     }
 }

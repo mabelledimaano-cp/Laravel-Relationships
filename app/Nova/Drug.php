@@ -51,10 +51,11 @@ class Drug extends Resource
             BelongsTo::make('Drug Manufacturer')
                 ->showCreateRelationButton(),
 
-            BelongsToMany::make('Pharmacies')
-                ->showCreateRelationButton(),
-
-            Number::make('Price'),
+            BelongsToMany::make('Pharmacies')->fields(function () {
+                return [
+                    Number::make('Price'),
+                ];
+            })->showCreateRelationButton(),
 
             HasMany::make('Prescriptions')
         ];

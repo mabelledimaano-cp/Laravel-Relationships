@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -51,11 +52,15 @@ class Pharmacy extends Resource
 
             Text::make('Fax No'),
 
-            BelongsToMany::make('Drugs'),
+            BelongsToMany::make('Drugs')->fields(function () {
+                return [
+                    Number::make('Price'),
+                ];
+            })->showCreateRelationButton(),
 
             HasMany::make('Contracts'),
 
-            HasMany::make('Works')
+            HasMany::make('Employees')
         ];
     }
 
