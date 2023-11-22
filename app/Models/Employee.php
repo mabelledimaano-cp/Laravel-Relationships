@@ -9,8 +9,15 @@ class Employee extends Model
 {
     use HasFactory;
 
-    public function work()
+    protected $fillable = ['shift_start', 'shift_end'];
+
+    protected $casts = [
+        'shift_start' => 'datetime',
+        'shift_end' => 'datetime',
+    ];
+
+    public function pharmacy()
     {
-        return $this->hasOne(Work::class);
+        return $this->belongsTo(Pharmacy::class);
     }
 }
