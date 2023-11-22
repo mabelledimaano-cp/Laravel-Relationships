@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();;
+            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->timestamps();
         });

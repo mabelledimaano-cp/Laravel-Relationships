@@ -14,8 +14,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->foreignIdFor(DrugManufacturer::class, 'manufacturer_id')->constrained()->cascadeOnDelete();;
-            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();;
+            $table->foreignIdFor(DrugManufacturer::class, 'manufacturer_id')->constrained('drug_manufacturers')->cascadeOnDelete();
+            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

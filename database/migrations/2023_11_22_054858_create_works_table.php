@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Employee::class)->constrained()->cascadeOnDelete();;
-            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();;
+            $table->foreignIdFor(Employee::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Pharmacy::class)->constrained()->cascadeOnDelete();
             $table->date('shift_start');
             $table->date('shift_end');
             $table->timestamps();
