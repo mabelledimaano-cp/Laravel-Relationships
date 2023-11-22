@@ -4,7 +4,7 @@ namespace App\Nova;
 
 
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -46,13 +46,16 @@ class Prescription extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Prescribed by', 'doctor', resource: Doctor::class),
+            BelongsTo::make('Prescribed by', 'doctor', resource: Doctor::class)
+                ->showCreateRelationButton(),
 
-            BelongsTo::make('Prescribed for', 'patient', resource: Patient::class),
+            BelongsTo::make('Prescribed for', 'patient', resource: Patient::class)
+                ->showCreateRelationButton(),
 
-            BelongsTo::make('Drug'),
+            BelongsTo::make('Drug')
+                ->showCreateRelationButton(),
 
-            Date::make('Date'),
+            DateTime::make('Date'),
 
             Number::make('Quantity')
         ];

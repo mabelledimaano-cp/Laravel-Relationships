@@ -2,8 +2,7 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
@@ -47,7 +46,12 @@ class Employee extends Resource
 
             Text::make('Name'),
 
-            HasOne::make('Work')
+            BelongsTo::make('Pharmacy')
+                ->showCreateRelationButton(),
+
+            DateTime::make('Shift Start'),
+
+            DateTime::make('Shift End')
         ];
     }
 

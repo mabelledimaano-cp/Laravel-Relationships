@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Patient::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Doctor::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Drug::class)->constrained()->cascadeOnDelete();
-            $table->date('date');
+            $table->dateTime('date');
             $table->integer('quantity');
             $table->timestamps();
         });

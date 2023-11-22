@@ -2,10 +2,8 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Contract extends Resource
@@ -46,9 +44,9 @@ class Contract extends Resource
 
             BelongsTo::make('Pharmacy'),
 
-            Date::make('Start Date'),
+            DateTime::make('Start Date'),
 
-            Date::make('End Date')
+            DateTime::make('End Date')
         ];
     }
 

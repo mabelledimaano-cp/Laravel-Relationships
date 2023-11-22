@@ -11,6 +11,10 @@ class Prescription extends Model
 
     protected $fillable = ['date', 'quantity'];
 
+    protected $casts = [
+        'date' => 'datetime',
+    ];
+
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
