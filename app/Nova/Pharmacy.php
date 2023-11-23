@@ -54,7 +54,7 @@ class Pharmacy extends Resource
 
             BelongsToMany::make('Drugs Sold:', 'drugs', Drug::class)->fields(function () {
                 return [
-                    Number::make('Price'),
+                    Number::make('Selling Price', 'price'),
                 ];
             })->showCreateRelationButton(),
 
