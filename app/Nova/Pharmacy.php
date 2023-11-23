@@ -52,15 +52,15 @@ class Pharmacy extends Resource
 
             Text::make('Fax No'),
 
-            BelongsToMany::make('Drugs')->fields(function () {
+            BelongsToMany::make('Drugs Sold:', 'drugs', Drug::class)->fields(function () {
                 return [
                     Number::make('Price'),
                 ];
             })->showCreateRelationButton(),
 
-            HasMany::make('Contracts'),
+            HasMany::make('Contract With:', 'contracts', Contract::class),
 
-            HasMany::make('Employees')
+            HasMany::make('Current Employees', 'employees', Employee::class)
         ];
     }
 

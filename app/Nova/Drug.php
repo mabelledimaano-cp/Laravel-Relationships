@@ -51,13 +51,13 @@ class Drug extends Resource
             BelongsTo::make('Drug Manufacturer')
                 ->showCreateRelationButton(),
 
-            BelongsToMany::make('Pharmacies')->fields(function () {
+            BelongsToMany::make('Can be found in Pharmacies:', 'pharmacies', Pharmacy::class)->fields(function () {
                 return [
-                    Number::make('Price'),
+                    Number::make('Selling Price', 'price'),
                 ];
             })->showCreateRelationButton(),
 
-            HasMany::make('Prescriptions')
+            HasMany::make('Prescriptions containing ' . $this->trade_name . ':', 'prescriptions', Prescription::class)
         ];
     }
 

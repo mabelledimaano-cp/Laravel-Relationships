@@ -60,7 +60,7 @@ class Patient extends Resource
             BelongsTo::make('Doctor')
                 ->showCreateRelationButton(),
 
-            HasMany::make('Prescriptions')
+            HasMany::make('Prescriptions:', 'prescriptions', Prescription::class)
         ];
     }
 

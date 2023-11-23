@@ -49,9 +49,9 @@ class DrugManufacturer extends Resource
 
             Text::make('Address'),
 
-            HasMany::make('Drugs'),
+            HasMany::make('Manufactured Drugs:', 'drugs', Drug::class),
 
-            HasOne::make('Contract')
+            HasOne::make('Contracted With:', 'contract', Contract::class)
         ];
     }
 

@@ -48,9 +48,9 @@ class Doctor extends Resource
 
             Text::make('Specialty'),
 
-            HasMany::make('Patients'),
+            HasMany::make('Current Patients:', 'patients', Patient::class),
 
-            HasMany::make('Prescriptions')
+            HasMany::make('Prescriptions Made:', 'prescriptions', Prescription::class)
         ];
     }
 
