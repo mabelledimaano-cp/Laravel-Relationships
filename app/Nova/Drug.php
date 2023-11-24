@@ -46,9 +46,11 @@ class Drug extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Trade Name'),
+            Text::make('Trade Name')
+                ->required(),
 
             BelongsTo::make('Drug Manufacturer')
+                ->required()
                 ->showCreateRelationButton(),
 
             BelongsToMany::make('Can be found in Pharmacies:', 'pharmacies', Pharmacy::class)->fields(function () {

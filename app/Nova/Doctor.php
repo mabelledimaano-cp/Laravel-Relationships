@@ -44,9 +44,11 @@ class Doctor extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
+            Text::make('Name')
+                ->required(),
 
-            Text::make('Specialty'),
+            Text::make('Specialty')
+                ->required(),
 
             HasMany::make('Current Patients:', 'patients', Patient::class),
 

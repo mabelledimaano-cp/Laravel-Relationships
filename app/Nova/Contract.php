@@ -40,13 +40,21 @@ class Contract extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            BelongsTo::make('Drug Manufacturer'),
+            BelongsTo::make('Drug Manufacturer')
+                ->required(),
 
-            BelongsTo::make('Pharmacy'),
+            BelongsTo::make('Pharmacy')
+                ->required(),
 
-            DateTime::make('Start Date'),
+            DateTime::make("Start Date")
+                ->displayUsing(function ($value){
+                    return $value->format("m/d/Y, h:i A");
+                })->required(),
 
-            DateTime::make('End Date')
+            DateTime::make("End Date")
+                ->displayUsing(function ($value){
+                    return $value->format("m/d/Y, h:i A");
+                })->required(),
         ];
     }
 

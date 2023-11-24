@@ -46,19 +46,26 @@ class Patient extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
+            Text::make('Name')
+                ->required()
+                ->showWhenPeeking(),
 
             Select::make('Sex')->options([
                 'Male' => 'Male',
                 'Female' => 'Female',
-            ]),
+            ])->required()->showWhenPeeking(),
 
-            Text::make('Address'),
+            Text::make('Address')
+                ->required()
+                ->showWhenPeeking(),
 
-            Text::make('Contact No'),
+            Text::make('Contact No')
+                ->required()
+                ->showWhenPeeking(),
 
-            BelongsTo::make('Doctor')
-                ->showCreateRelationButton(),
+            BelongsTo::make('Is Seen By Doctor:','doctor', Doctor::class)
+                ->showCreateRelationButton()
+                ->required(),
 
             HasMany::make('Prescriptions:', 'prescriptions', Prescription::class)
         ];

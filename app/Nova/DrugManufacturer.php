@@ -45,9 +45,13 @@ class DrugManufacturer extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Company Name'),
+            Text::make('Company Name')
+                ->required()
+                ->showWhenPeeking(),
 
-            Text::make('Address'),
+            Text::make('Address')
+                ->required()
+                ->showWhenPeeking(),
 
             HasMany::make('Manufactured Drugs:', 'drugs', Drug::class),
 

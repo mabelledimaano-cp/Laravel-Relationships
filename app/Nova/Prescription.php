@@ -47,17 +47,24 @@ class Prescription extends Resource
             ID::make()->sortable(),
 
             BelongsTo::make('Prescribed by', 'doctor', resource: Doctor::class)
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->required(),
 
             BelongsTo::make('Prescribed for', 'patient', resource: Patient::class)
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->required(),
 
             BelongsTo::make('Drug')
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->required(),
 
-            DateTime::make('Date'),
+            DateTime::make("Date")
+                ->displayUsing(function ($value){
+                    return $value->format("m/d/Y, h:i A");
+                })->required(),
 
             Number::make('Quantity')
+                ->required()
         ];
     }
 

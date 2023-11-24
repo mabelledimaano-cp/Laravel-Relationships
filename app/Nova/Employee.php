@@ -44,14 +44,22 @@ class Employee extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
+            Text::make('Name')
+                ->required(),
 
             BelongsTo::make('Pharmacy')
-                ->showCreateRelationButton(),
+                ->showCreateRelationButton()
+                ->required(),
 
-            DateTime::make('Shift Start'),
+            DateTime::make("Shift Start")
+                ->displayUsing(function ($value){
+                    return $value->format("m/d/Y, h:i A");
+                }),
 
-            DateTime::make('Shift End')
+            DateTime::make("Shift End")
+                ->displayUsing(function ($value){
+                    return $value->format("m/d/Y, h:i A");
+                }),
         ];
     }
 

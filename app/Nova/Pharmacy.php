@@ -46,11 +46,17 @@ class Pharmacy extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
+            Text::make('Name')
+                ->required()
+                ->showWhenPeeking(),
 
-            Text::make('Address'),
+            Text::make('Address')
+                ->required()
+                ->showWhenPeeking(),
 
-            Text::make('Fax No'),
+            Text::make('Fax No')
+                ->required()
+                ->showWhenPeeking(),
 
             BelongsToMany::make('Drugs Sold:', 'drugs', Drug::class)->fields(function () {
                 return [
