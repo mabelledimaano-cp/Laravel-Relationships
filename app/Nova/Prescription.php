@@ -4,7 +4,7 @@ namespace App\Nova;
 
 
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -58,10 +58,7 @@ class Prescription extends Resource
                 ->showCreateRelationButton()
                 ->required(),
 
-            DateTime::make("Date")
-                ->displayUsing(function ($value){
-                    return $value->format("m/d/Y, h:i A");
-                })->required(),
+            Date::make("Date")->required(),
 
             Number::make('Quantity')
                 ->required()

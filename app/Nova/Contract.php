@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Contract extends Resource
@@ -41,20 +41,18 @@ class Contract extends Resource
     {
         return [
             BelongsTo::make('Drug Manufacturer')
+                ->showCreateRelationButton()
                 ->required(),
 
             BelongsTo::make('Pharmacy')
+                ->showCreateRelationButton()
                 ->required(),
 
-            DateTime::make("Start Date")
-                ->displayUsing(function ($value){
-                    return $value->format("m/d/Y, h:i A");
-                })->required(),
+            Date::make("Start Date")
+                ->required(),
 
-            DateTime::make("End Date")
-                ->displayUsing(function ($value){
-                    return $value->format("m/d/Y, h:i A");
-                })->required(),
+            Date::make("End Date")
+                ->required(),
         ];
     }
 

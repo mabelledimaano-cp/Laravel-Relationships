@@ -12,7 +12,7 @@ class Prescription extends Model
     protected $fillable = ['date', 'quantity'];
 
     protected $casts = [
-        'date' => 'datetime',
+        'date' => 'date',
     ];
 
     public function doctor()
