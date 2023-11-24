@@ -64,9 +64,9 @@ class Pharmacy extends Resource
                 ];
             })->showCreateRelationButton(),
 
-            HasMany::make('Contracted With:', 'contracts', Contract::class),
+            HasMany::make('Current Employees', 'employees', Employee::class),
 
-            HasMany::make('Current Employees', 'employees', Employee::class)
+            HasMany::make('Contracted With:', 'contracts', Contract::class)
         ];
     }
 
