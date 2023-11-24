@@ -4,7 +4,6 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -55,7 +54,7 @@ class DrugManufacturer extends Resource
 
             HasMany::make('Manufactured Drugs:', 'drugs', Drug::class),
 
-            HasOne::make('Contracted With:', 'contract', Contract::class)
+            HasMany::make('Contracted With:', 'contract', Contract::class)
         ];
     }
 

@@ -16,6 +16,6 @@ class DrugManufacturer extends Model
 
     public function contract()
     {
-        return $this->hasOne(Contract::class);
+        return $this->hasMany(Contract::class);
     }
 }
