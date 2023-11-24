@@ -50,7 +50,7 @@ class Doctor extends Resource
             Text::make('Specialty')
                 ->required(),
 
-            HasMany::make('Current Patients:', 'patients', Patient::class),
+            HasMany::make('Currently Seeing Patients:', 'patients', Patient::class),
 
             HasMany::make('Prescriptions Made:', 'prescriptions', Prescription::class)
         ];

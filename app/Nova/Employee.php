@@ -47,7 +47,7 @@ class Employee extends Resource
             Text::make('Name')
                 ->required(),
 
-            BelongsTo::make('Pharmacy')
+            BelongsTo::make('Works in:','Pharmacy', Pharmacy::class)
                 ->showCreateRelationButton()
                 ->required(),
 
